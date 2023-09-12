@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import swal from 'sweetalert';
+import axios from "axios";
 import { Link } from 'react-router-dom'; // Import Link for redirection (if using React Router)
 import '../../css/signup.css'; // Import your CSS file for styling
 
 const SignUpPage = () => {
     // Define state variables to store user input
+    const [loading, setLoading] = useState(false);
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [aadharNumber, setAadharNumber] = useState('');
@@ -13,9 +16,30 @@ const SignUpPage = () => {
     const [password, setPassword] = useState('');
 
     // Function to handle form submission
-    const handleSignUp = (e) => {
+    const handleSignUp = async (e) => {
         e.preventDefault();
-        // You can add code here to process the user's registration data
+
+        const body = {
+            firstName,
+            lastName,
+            username,
+            aadharNumber,
+            mobileNumber: phoneNumber,
+            email,
+            password,
+            isLegalUser: true,
+        }
+
+        try {
+            setLoading(() => true);
+            const { data, status } = await axios.post("http://localhost:8080/auth/signup", body);
+            if (status == 201) swal(data);
+        } catch (e) {
+            swal(e.message);
+        } finally {
+            setLoading(() => false);
+        }
+
     };
 
     return (
