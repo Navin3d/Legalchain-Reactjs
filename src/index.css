@@ -1,0 +1,30 @@
+.nav-items{
+    width:80%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+a{
+    text-decoration: none;
+    color:white;
+    margin:10px 40px;
+}
+.nav{
+    display:flex;
+    justify-content: space-between;
+    height: 55px;
+    background: #000;
+    color:white;
+    align-items: center;
+    /* justify-content: center; */
+}
+.home{
+    width:100%;
+    height:80vh;
+
+}
+img{
+    width:100%;
+}

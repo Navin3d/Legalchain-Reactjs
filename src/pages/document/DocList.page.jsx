@@ -15,12 +15,14 @@ const DocListPage = () => {
     }, []);
 
     const getData = async () => {
-        const { data } = await axios.get("http://localhost:8080/user/docs/navin3d");
-        if(data["ownedRecords"]) {
+        const { data } = await axios.get("http://localhost:8080/user/docs/logamis");
+        setDocuments((prev) => []);
+        console.log(data);
+        if(data["ownedRecords"].length > 0) {
             setDocuments((prev) => (data["ownedRecords"]));
         }
         if(data["sharedRecords"].length > 0) {
-            setDocuments((prev) => ([ ...prev, data["sharedRecords"] ]));
+            setDocuments((prev) => ([ ...prev, ...data["sharedRecords"] ]));
         }
     }
 
@@ -39,7 +41,7 @@ const DocListPage = () => {
                                 <div className="card-body">
                                     <h5 className="card-title">{document.tittle}</h5>
                                     <p className="card-text">Date: {document.timeStamp}</p>
-                                    <a href={document.hash} className="btn btn-primary" id='button-css'>View</a>
+                                    <a href={document.hash} target="_blank" className="btn btn-primary" id='button-css'>View</a>
                                 </div>
                             </div>
                         </div>
