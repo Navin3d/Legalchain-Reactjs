@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom'; // Import Link for redirection (if using React Router)
 import '../../css/signup.css'; // Import your CSS file for styling
 
+
 const SignUpPage = () => {
     // Define state variables to store user input
     const [loading, setLoading] = useState(false);
@@ -18,7 +19,6 @@ const SignUpPage = () => {
     // Function to handle form submission
     const handleSignUp = async (e) => {
         e.preventDefault();
-
         const body = {
             firstName,
             lastName,
@@ -29,7 +29,6 @@ const SignUpPage = () => {
             password,
             isLegalUser: true,
         }
-
         try {
             setLoading(() => true);
             const { data, status } = await axios.post("http://localhost:8080/auth/signup", body);
@@ -41,14 +40,15 @@ const SignUpPage = () => {
         }
 
     };
-
     return (
+        <div className='home-back'>
         <div className="signup-container">
-            <h1>Sign Up</h1>
+            <h1 className='signup-title'>Sign Up</h1>
             <form onSubmit={handleSignUp}>
                 <div className="form-group">
                     <input
                         type="text"
+                        id='ip-fd'
                         placeholder="First Name"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
@@ -58,6 +58,7 @@ const SignUpPage = () => {
                 <div className="form-group">
                     <input
                         type="text"
+                        id='ip-fd'
                         placeholder="Last Name"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
@@ -67,6 +68,7 @@ const SignUpPage = () => {
                 <div className="form-group">
                     <input
                         type="text"
+                        id='ip-fd'
                         placeholder="Aadhar Number"
                         value={aadharNumber}
                         onChange={(e) => setAadharNumber(e.target.value)}
@@ -76,6 +78,7 @@ const SignUpPage = () => {
                 <div className="form-group">
                     <input
                         type="tel"
+                        id='ip-fd'
                         placeholder="Phone Number"
                         value={phoneNumber}
                         onChange={(e) => setPhoneNumber(e.target.value)}
@@ -85,6 +88,7 @@ const SignUpPage = () => {
                 <div className="form-group">
                     <input
                         type="email"
+                        id='ip-fd'
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -94,6 +98,7 @@ const SignUpPage = () => {
                 <div className="form-group">
                     <input
                         type="text"
+                        id='ip-fd'
                         placeholder="Username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
@@ -103,16 +108,18 @@ const SignUpPage = () => {
                 <div className="form-group">
                     <input
                         type="password"
+                        id='ip-fd'
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
                 </div>
-                <button type="submit">Register</button>
+                <button id='reg-btn' type="submit">Register</button>
             </form>
-            <p>Already have an account? <Link to="/signin">Sign In</Link></p>
-        </div>
+            {/* <p className='lg-link'>Already have an account?<Link to="/signin">Sign In</Link></p> */}
+            <p className='lg-link'>Already have an account?<a href="/auth/login">Login</a></p></div>
+        </div>    
     );
 }
 

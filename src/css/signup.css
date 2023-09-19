@@ -1,20 +1,49 @@
 /* Styling for the signup container */
-.signup-container {
-    max-width: 400px;
-    margin-top: 100px;
-    margin-left: 575px;
-    padding: 20px;
+.signup-container1 {
+    position: absolute;
+    top:30%;
+    left: 40%;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    box-shadow: 5px 10px 8px #2c2c2c;
     text-align: center;
+    background:black;
+    opacity: 0.7;
 }
-
+.signup-container {
+    position: absolute;
+    top:15%;
+    left: 40%;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    backdrop-filter: blur(20px);
+    box-shadow: 5px 10px 8px #2c2c2c;
+    text-align: center;
+    background:black;
+    opacity: 0.7;
+}
+.home-back{
+    background-image: url('../assets/background.jpg');
+    background-size: cover; 
+    background-attachment: fixed;
+    width: 100vw;
+    height: 90vh; 
+}
+#reg-btn{
+    border-radius: 5px;
+    opacity: 0.9;
+}
 /* Styling for the form elements */
 .form-group {
     margin-bottom: 15px;
 }
-
 input[type="text"],
 input[type="tel"],
 input[type="email"],
@@ -24,7 +53,6 @@ input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 3px;
 }
-
 /* Styling for the submit button */
 button[type="submit"] {
     background-color: #007bff;
@@ -34,14 +62,28 @@ button[type="submit"] {
     border-radius: 3px;
     cursor: pointer;
 }
+#ip-fd{
+    background:black;
+}
+::placeholder{
+    color: white;
+}
 
+.lg-link{
+color: white;
+text-align: center;
+margin-left: 10px;
+}
+.signup-title{
+    font-family: 'Tilt Prism', cursive;
+    margin-bottom: 20px;
+    color: white;
+}
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
-
 /* Styling for the link to sign-in */
 p {
     margin-top: 10px;
 }
-
 /* Add more styling as needed based on your design preferences */
