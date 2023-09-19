@@ -1,0 +1,36 @@
+.reactloadingbars{
+    position: absolute;
+    top: 45%;
+    left: 48%;
+}
+.nav-links{
+    font-size: large;
+    font-family: 'Kanit', sans-serif;
+}
+.nav{
+    opacity: 0.8;
+}
+.navbar-css{
+    margin-left: 20px;
+    font-family: 'Kanit', sans-serif;
+}
+.footer{
+    background-color: rgb(9, 9, 9);  
+    border-top: 2px solid red;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: white;
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 2px;
+    position: fixed;
+}
+.other-links{
+    font-size: 20px;
+    letter-spacing: 30px;
+}
+/* #phone{
+    padding-top: 15px;
+} */

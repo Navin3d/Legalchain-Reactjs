@@ -46,7 +46,7 @@ const DocUploadPage = () => {
     };
 
     return (
-        <div>
+        <div className='background'>
             <div className="container">
                 <div className="row">
                     <div className="col-12 text-center">
@@ -54,8 +54,8 @@ const DocUploadPage = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-6" id='formlayout'>
+                    <div className="col-md-4"></div>
+                    <div className="col-md-5" id='formlayout'>
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="title" id='subtitle'>Title</label>
@@ -63,7 +63,7 @@ const DocUploadPage = () => {
                                     type="text"
                                     id="description"
                                     name="tittle"
-                                    value={formdata.tittle}
+                                    value={formdata.tittle} 
                                     onChange={handleOnChange}
                                     className="form-control"
                                     placeholder="Title"
@@ -83,7 +83,7 @@ const DocUploadPage = () => {
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="file" id='subtitle'>Upload File</label>
+                                <label htmlFor="file" id='subtitle'>Upload File  </label>
                                 <input
                                     type="file"
                                     id="file"

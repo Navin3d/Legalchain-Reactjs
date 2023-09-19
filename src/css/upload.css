@@ -1,49 +1,80 @@
+.background {
+    background-image: url('../assets/background.jpg');
+    background-size: cover; 
+    background-attachment: fixed;
+    width: 98.7vw;
+    height: 100vh;  
+  }
 .upload{
     font-size: 40px;
-    text-align: center;
+    text-align: left;
     margin-top: 40px;
     font-weight: 600;
+    font-family: 'Tilt Prism', cursive;
+    color: rgb(0, 0, 0);
 }
 #formlayout{
     margin-top: 40px;
     margin-bottom: 20px;
     border:  1px solid black;
     border-radius: 10px;
+    background-color: black;
+    color: white;
+    opacity: 0.6;
+    font-family: 'Times New Roman', Times, serif;
+    backdrop-filter: blur(20px);
+    box-shadow: 5px 10px 8px #2c2c2c;
+    border: 1px solid white;
 }
-
+/* ::placeholder{
+    color: white;
+    opacity: 1;
+} */
 #subtitle{
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-left: 10px;
     margin-bottom: 20px;
     font-size: 20px;
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 600;   
 }
-
 #description{
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 20px;
-    border-radius: 10px;
+    border-radius: 10px;   
 }
-
 #button-css{
     font-size: 20px;
-    width: 250px;
+    width: 200px;
     height: 50px;
     margin-bottom: 20px;
     border-radius: 10px;
 }
-
 #card-start{
     margin-top: 40px;
 }
-
 .card
 {
-    border: 1px solid black;
+    border: 2px solid;
+    padding: 10px;
+    box-shadow: 3px 10px 8px #2c2c2c;
+    border-radius: 15px;
+    background: black;
+    opacity: 0.6;
+    backdrop-filter: blur(20px);
+    color: white;
+    font-family: 'Inter', sans-serif;
 }
-
 .card-body{
     font-size: 20px;
     font-weight: 500;
+}
+
+#description{
+    background-color: black;
+    opacity: 0.6;
+    color: white;
+    border: 1px solid white;
+
 }
