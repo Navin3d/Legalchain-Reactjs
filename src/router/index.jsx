@@ -8,7 +8,8 @@ import Loginpage from "../pages/auth/Loginpage";
 import Loadingscreen from "../pages/document/Loading"
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import SimpleDialogDemo from "../components/SimpleDialogDemo";
+//import SimpleDialogDemo from "../components/SimpleDialogDemo";
+import MyDocpage from "../pages/document/MyDocpage";
 
 const router = createBrowserRouter([
     {
@@ -40,9 +41,9 @@ const router = createBrowserRouter([
         element: <DocViewPage/>
     },
     {
-        path: "/test",
-        element: <SimpleDialogDemo/>
-    }
+        path: "/mydocs",
+        element: <MyDocpage/>
+    },
 
 ]);
 
