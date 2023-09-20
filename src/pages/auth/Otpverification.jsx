@@ -1,19 +1,26 @@
-import React from 'react';
-import '../../css/signup.css';
-import { Link } from 'react-router-dom';
-const Loginpage = () => {
+import React from 'react'
+const Otpverification = () => {
   return (
-    <div className='home-back'>
-    <div className="signup-container1">
-        <h1 className='signup-title'>Login</h1>
+    <div>
+         <div className='home-back'>
+        <div className="signup-container1">
+        <h1 className='signup-title'>OTP Verification</h1>
         <form >
             <div className="form-group">
                 <input
                     type="text"
                     id='ip-fd'
-                    placeholder="Username"  
+                    placeholder="Aadhar number"  
                     //value={username}
                     //onChange={(e) => setUsername(e.target.value)}
+                    required
+                />
+            </div>
+            <div id='date-extend' className="form-group">
+                <input
+                    type="text"
+                    id='ip-fd'
+                    placeholder="dd-mm-yyyy"
                     required
                 />
             </div>
@@ -21,18 +28,21 @@ const Loginpage = () => {
                 <input
                     type="password"
                     id='ip-fd'
-                    placeholder="Password"
+                    placeholder="OTP"
                     //value={password}
                     //onChange={(e) => setPassword(e.target.value)}
                     required
                 />
             </div>
-            <button id='reg-btn' type="submit">Login</button>
+
+
+            <button id='reg-btn' type="submit">Verify</button>
         </form>
         {/* <p className='lg-link'>Already have an account?<Link to="/signin">Sign In</Link></p> */}
         <p className='lg-link'>Dont have an account?<a href="/auth/signup">Signup</a></p></div>
     </div> 
+    </div>
   )
 }
 
-export default Loginpage
+export default Otpverification

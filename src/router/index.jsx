@@ -9,6 +9,7 @@ import Loadingscreen from "../pages/document/Loading"
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 //import SimpleDialogDemo from "../components/SimpleDialogDemo";
+import Otpverification from "../pages/auth/Otpverification";
 import MyDocpage from "../pages/document/MyDocpage";
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
     {
         path: "/mydocs",
         element: <MyDocpage/>
+    },
+    {
+        path: "/auth/otp",
+        element: <Otpverification/>
     },
 
 ]);

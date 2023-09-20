@@ -64,6 +64,7 @@ button[type="submit"] {
 }
 #ip-fd{
     background:black;
+    color: white;
 }
 ::placeholder{
     color: white;

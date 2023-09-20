@@ -31,6 +31,18 @@
     font-size: 20px;
     letter-spacing: 30px;
 }
+
+.nav-links a:active{
+    background-color: blue;
+    color: white;
+
+}
+
+
+/* #date-extend{
+   border: 1px solid white;
+} */
+
 /* #phone{
     padding-top: 15px;
 } */
