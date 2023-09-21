@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import swal from 'sweetalert';
 import axios from "axios";
-import { Link } from 'react-router-dom'; // Import Link for redirection (if using React Router)
+import { Link, useNavigate, redirect } from 'react-router-dom'; // Import Link for redirection (if using React Router)
 import '../../css/signup.css'; // Import your CSS file for styling
 
 
 const SignUpPage = () => {
+    const navigate = useNavigate();
+
     // Define state variables to store user input
     const [loading, setLoading] = useState(false);
     const [firstName, setFirstName] = useState('');
@@ -33,12 +35,12 @@ const SignUpPage = () => {
             setLoading(() => true);
             const { data, status } = await axios.post("http://localhost:8080/auth/signup", body);
             if (status == 201) swal(data);
+            navigate("/auth/login");
         } catch (e) {
             swal(e.message);
         } finally {
             setLoading(() => false);
         }
-
     };
     return (
         <div className='home-back'>

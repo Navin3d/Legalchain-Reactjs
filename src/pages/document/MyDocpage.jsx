@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import '../../css/mydocs.css';
 import Button from '@mui/material/Button';
@@ -25,22 +27,22 @@ const data = [
     title: "Passport",
   },
   {
-    title :"Ration card",
+    title: "Ration card",
   },
   {
     title: "NPR Card",
   },
   {
-    title : "NRI Card",
+    title: "NRI Card",
   },
   {
-    title : "Senior citizen card",
+    title: "Senior citizen card",
   },
   {
-    title : "ECHS card",
+    title: "ECHS card",
   },
   {
-    title : "Adivasi Identity card",
+    title: "Adivasi Identity card",
   },
   {
     title: "disabled person ID",
@@ -52,33 +54,50 @@ const Card = ({ title, onAddClick }) => {
     <div className="card">
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
-        <Button variant="contained" onClick={onAddClick} sx={{ background:"#143aa5"}}>
-         ADD 
+        <Button variant="contained" onClick={onAddClick} sx={{ background: "#143aa5" }}>
+          ADD
         </Button>
       </div>
     </div>
   );
 };
 
+const INITIAL_STATE = {
+  "username": "",
+  "password": "",
+  "otp": ""
+};
 const MyDocpage = () => {
+  const [authBody, setAuthBody] = useState(INITIAL_STATE);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setAuthBody((prev) => ({ ...prev, [name]: value }));
+  };
 
-  const handleClickOpen = () => {
+  const handleClickOpen = async () => {
     setOpen(true);
+    await axios.get("http://localhost:8080/transfer/LICENSE/smnavin65@gmail.com");
   };
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const handleredirect =() =>{  
-    navigate('/auth/otp');
+  const handleredirect = async () => {
+    try {
+      const { headers } = await axios.post("http://localhost:8080/auth/login/2f", authBody);
+      if (headers.authorization == "OK")
+        navigate('/auth/otp');
+    } catch (e) {
+      swal("Un-Authorized");
+    }
   }
   return (
     <div className="background">
-    
+
       <div className="container">
         <div className="row">
           <h2 className='mydoc-title'>MY DOCUMENTS</h2>
@@ -98,9 +117,12 @@ const MyDocpage = () => {
               autoFocus
               margin="dense"
               id="name"
-              label="Mobile number"
-              type="number"
+              label="User Name"
+              type="text"
               fullWidth
+              name="username"
+              value={authBody.username}
+              onChange={handleOnChange}
               variant="standard"
             />
           </DialogContent>
@@ -109,10 +131,13 @@ const MyDocpage = () => {
               autoFocus
               margin="dense"
               id="name"
-              label=""
-              type="date"
+              label="Password"
+              type="password"
               fullWidth
               variant="standard"
+              name="password"
+              value={authBody.password}
+              onChange={handleOnChange}
             />
           </DialogContent>
           <DialogContent>
@@ -124,6 +149,9 @@ const MyDocpage = () => {
               type="password"
               fullWidth
               variant="standard"
+              name="otp"
+              value={authBody.otp}
+              onChange={handleOnChange}
             />
           </DialogContent>
           <DialogActions>

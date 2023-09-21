@@ -16,6 +16,16 @@ import PropTypes from 'prop-types'; // Add this import
 
 const emails = ['username@gmail.com', 'user02@gmail.com'];
 
+const INITIAL_SHARE = {
+  "recordIds": [
+      ""
+  ],
+  "userIds": [
+      ""
+  ],
+  "shareUntil": "2023-10-10"
+}
+
 function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
   
@@ -80,7 +90,7 @@ export default function DocListPage() {
 
   const getData = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8080/user/docs/logamis");
+      const { data } = await axios.get("http://localhost:8080/user/docs/navin3d");
       setDocuments((prev) => []);
       console.log(data);
       if (data["ownedRecords"].length > 0) {
@@ -123,7 +133,7 @@ export default function DocListPage() {
                       <a href={document.hash} target="_blank" className="btn btn-primary" id='button-css'>View</a>
                     </div>
                     <div className="col-md-5">
-                      <a href={document.hash} target="_blank" className="btn btn-primary" id='button-css' onClick={handleClickOpen} >Share</a>
+                      <a className="btn btn-primary" id='button-css' onClick={handleClickOpen} name={document.id}>Share</a>
                     </div>
                   </div>
                 </div>
