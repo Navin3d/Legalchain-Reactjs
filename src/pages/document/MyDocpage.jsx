@@ -52,7 +52,7 @@ const Card = ({ title, onAddClick }) => {
     <div className="card">
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
-        <Button variant="contained" onClick={onAddClick}>
+        <Button variant="contained" onClick={onAddClick} sx={{ background:"#143aa5"}}>
          ADD 
         </Button>
       </div>

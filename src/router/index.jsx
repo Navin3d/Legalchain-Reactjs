@@ -6,11 +6,13 @@ import DocViewPage from "../pages/document/DocumentView.Page";
 import DocUploadPage from "../pages/document/DocUpload.page";
 import Loginpage from "../pages/auth/Loginpage";
 import Loadingscreen from "../pages/document/Loading"
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
+// import NavBarCommon from "../components/navBarCommon";
 import Footer from "../components/Footer";
 //import SimpleDialogDemo from "../components/SimpleDialogDemo";
 import Otpverification from "../pages/auth/Otpverification";
 import MyDocpage from "../pages/document/MyDocpage";
+import Navbar from "../components/Navbar";
 
 const router = createBrowserRouter([
     {

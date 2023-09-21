@@ -38,7 +38,7 @@
 }
 #reg-btn{
     border-radius: 5px;
-    opacity: 0.9;
+    /* opacity: 0.9; */
 }
 /* Styling for the form elements */
 .form-group {
@@ -55,7 +55,7 @@ input[type="password"] {
 }
 /* Styling for the submit button */
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: #143aa5;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -81,7 +81,7 @@ margin-left: 10px;
     color: white;
 }
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #143aa5;
 }
 /* Styling for the link to sign-in */
 p {
