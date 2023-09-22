@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import swal from 'sweetalert';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import '../../css/upload.css';
 
 
@@ -12,6 +13,7 @@ const INITIAL_FORM_DATA = {
 };
 
 const DocUploadPage = () => {
+    const navigate = useNavigate();
     const [file, setFile] = useState(null);
     const [formdata, setFormData] = useState(INITIAL_FORM_DATA);
 
@@ -39,9 +41,11 @@ const DocUploadPage = () => {
         form.append("file", file);
         try {
             const { data } = await axios.post("http://localhost:8080/legal/contract", form);
-            swal(data["message"]);
+            navigate("/document");
+            // swal(data["message"]);
         } catch (e) {
-            swal("Uploaded The doc1");
+            navigate("/document");
+            // swal("Uploaded The doc1");
         }
     };
 

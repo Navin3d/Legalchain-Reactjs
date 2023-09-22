@@ -13,24 +13,22 @@ import ListItemText from '@mui/material/ListItemText';
 import { blue } from '@mui/material/colors';
 import PersonIcon from '@mui/icons-material/Person';
 import PropTypes from 'prop-types'; // Add this import
+import swal from "sweetalert";
 
-const emails = ['username@gmail.com', 'user02@gmail.com'];
+const emails = ['loga', 'kaushik'];
 
 const INITIAL_SHARE = {
-  "recordIds": [
-      ""
-  ],
-  "userIds": [
-      ""
-  ],
+  "recordIds": [],
+  "userIds": [],
   "shareUntil": "2023-10-10"
 }
 
 function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
-  
+
   const handleClose = () => {
     onClose(selectedValue);
+    console.log("props: ", props);
   };
 
   const handleListItemClick = (value) => {
@@ -80,6 +78,7 @@ export default function DocListPage() {
     { timeStamp: '2023-09-13', tittle: 'Section 432 Overspeeding case' },
   ];
 
+  const [share, setShare] = useState(INITIAL_SHARE);
   const [documents, setDocuments] = useState(INITIAL);
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState(emails[1]);
@@ -90,9 +89,9 @@ export default function DocListPage() {
 
   const getData = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8080/user/docs/navin3d");
+      const { data } = await axios.get("http://localhost:8080/user/docs/kaushik");
       setDocuments((prev) => []);
-      console.log(data);
+      // console.log(data);
       if (data["ownedRecords"].length > 0) {
         setDocuments((prev) => data["ownedRecords"]);
       }
@@ -104,13 +103,28 @@ export default function DocListPage() {
     }
   };
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (e) => {
     setOpen(true);
+    const { name } = e.target;
+    console.log("name: ", name);
+    share.recordIds.push(name);
+    setShare(() => share);
   };
 
-  const handleClose = (value) => {
+  const handleClose = async (value) => {
     setOpen(false);
     setSelectedValue(value);
+    console.log("value: ", value);
+    share.userIds.push(value);
+    setShare(() => share);
+    console.log("share; ", share);
+    try {
+      const { data, status } = await axios.post("http://localhost:8080/share", share);
+      if (status == 200)
+        swal(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -126,7 +140,7 @@ export default function DocListPage() {
             <div key={index} className="col-md-6 mb-4" id='card-start'>
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">Case: {document.tittle}</h5>
+                  <h5 className="card-title">File: {document.tittle}</h5>
                   <p className="card-text">Date: {document.timeStamp}</p>
                   <div className="row">
                     <div className="col-md-5">

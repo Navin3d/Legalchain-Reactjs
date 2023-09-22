@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="row">
         <div className="col">
-          <p><i class="fa-solid fa-phone">+91 9790778113</i></p>
+          <p><i class="fa-solid fa-phone">+91 9876543211</i></p>
           </div>
         <div className="col"><p>Copyrights@2023 Emerging programmers</p></div>
         <div className="col">
